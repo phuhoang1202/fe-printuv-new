@@ -7,7 +7,7 @@ import iconSearch from '@assets/images/IconSearch.svg'
 import LogoNoBg from '@assets/images/Logo/LogoNoBg.png'
 
 export default function NewNavbar() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   // const [darkMode, setDarkMode] = useState(
   //   localStorage.theme === 'dark' ||
   //     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
@@ -67,19 +67,10 @@ export default function NewNavbar() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.documentElement.classList.add('dark')
-  //     localStorage.theme = 'dark'
-  //   } else {
-  //     document.documentElement.classList.remove('dark')
-  //     localStorage.theme = 'light'
-  //   }
-  // }, [darkMode])
-
   const handleSearch = async () => {
     try {
-      navigate(`/search-product?query=${encodeURIComponent(valueSearch)}`)
+      navigate(`/tat-ca-san-pham?q=${encodeURIComponent(valueSearch)}`)
+      setValueSearch('')
     } catch (error) {
       console.error('Error translating text:', error)
     }

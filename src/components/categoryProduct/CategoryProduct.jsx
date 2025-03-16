@@ -4,6 +4,7 @@ import { product } from '@services/user/product'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import Loading from '@components/loadingCommon/Loading'
+import { useLocation, useNavigate } from 'react-router-dom'
 const { Search } = Input
 
 export default function CategoryProduct() {
@@ -12,6 +13,12 @@ export default function CategoryProduct() {
   const [amountProduct, setAmountProduct] = useState(2)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [searchPrd, setSearchPrd] = useState('')
+
+  const location = useLocation()
+  const navigate = useNavigate()
+  // Lấy query param từ URL
+  const searchParams = new URLSearchParams(location.search)
+  const searchQuery = searchParams.get('q') || ''
 
   const categories = [
     { id: 1, name: 'Máy in quảng cáo', value: 'may-in-quang-cao' },
@@ -37,15 +44,11 @@ export default function CategoryProduct() {
     }
   }
 
-  useEffect(() => {
-    fetchBestProducts()
-  }, [])
-
   // Search
-  const fetchSearchProducts = async () => {
+  const fetchSearchProducts = async (query) => {
     try {
       setIsLoading(true)
-      const response = await product.searchPrd(searchPrd)
+      const response = await product.searchPrd(query)
       setProducts(response.data.data.items)
     } catch (error) {
       console.error('Error fetching recommended products')
@@ -56,9 +59,21 @@ export default function CategoryProduct() {
 
   const handleSearchPrd = () => {
     if (searchPrd) {
-      fetchSearchProducts()
+      const newSearchParams = new URLSearchParams(location.search)
+      newSearchParams.set('q', searchPrd)
+      navigate(`?${newSearchParams.toString()}`)
     }
   }
+
+  useEffect(() => {
+    if (searchQuery) {
+      console.log('123123')
+
+      fetchSearchProducts(searchQuery)
+    } else {
+      fetchBestProducts()
+    }
+  }, [searchQuery])
 
   return (
     <div className='lg:mt-24 mt-20 max-w-7xl mx-auto'>

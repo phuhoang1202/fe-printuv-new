@@ -18,7 +18,7 @@ export default function ProductSuggest() {
   const fetchRecommendProducts = async () => {
     try {
       setIsLoading(true)
-      const response = await product.getAllPrds(10, 0)
+      const response = await product.getAllPrds(10, 1)
 
       setRecommendProducts(response.data.data.items)
     } catch (error) {

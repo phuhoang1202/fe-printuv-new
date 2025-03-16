@@ -50,4 +50,5 @@ export const product = {
   getProductByType,
   getProductByAllParent,
   getProductFindByType,
+  searchPrd,
 }
