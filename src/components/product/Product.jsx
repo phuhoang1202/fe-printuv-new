@@ -42,14 +42,14 @@ export default function Product({ item, type, combinedArray, index, addToWishLis
     return () => clearTimeout(timer)
   }, [])
 
-  if (loading) {
-    return (
-      <div className='flex items-center gap-4'>
-        <Skeleton.Image className='w-full h-full' />
-        <Skeleton active />
-      </div>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <div className='flex items-center gap-4'>
+  //       <Skeleton.Image className='w-full h-full' />
+  //       <Skeleton active />
+  //     </div>
+  //   )
+  // }
 
   return (
     <section className='flex justify-center items-center w-full max-w-3xl gap-6'>
