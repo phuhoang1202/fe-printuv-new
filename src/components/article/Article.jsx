@@ -12,45 +12,48 @@ export default function Article() {
     {
       id: 1,
       category: 'Kiến Thức',
-      title: 'Proxy là gì? Các loại proxy phổ biến hiện nay',
+      title: 'Công nghệ in UV có gì đặc biệt',
       author: 'Admin',
       date: '27/02/2025',
-      image: proxy1,
+      image: 'https://bigcolor.vn/hinhanh/tintuc/cong-nghe-in-uv-co-gi-dac-biet.jpg',
     },
     {
       id: 2,
-      category: 'Mạng Internet',
-      title: 'Mạng 6G là gì? mạng 6G có tốc độ bao nhiêu?',
+      category: 'Kiến Thức',
+      title: 'Top 5 máy in UV bạn nên dùng',
       description:
         'Mạng 6G là gì? mạng 6G có tốc độ bao nhiêu? Làm sao để mạng 6G có thể nhanh gấp 500 lần so với 5G? Trong kỷ nguyên số hiện nay...',
       author: 'Admin',
       date: '03/03/2025',
-      image: content6g,
+      image: 'https://mayinuv.com.vn/wp-content/uploads/may-in-uv-cuon-kho-lon-3m2.jpg',
     },
     {
       id: 3,
-      category: 'Mạng Internet',
-      title: 'Băng thông là gì?',
+      category: 'Kiến Thức',
+      title: 'Đào tạo JDPAIN và vận hành máy cắt khắc CNC',
       author: 'Admin',
       date: '01/03/2025',
-      image: bangthong1,
+      image: 'https://bizweb.dktcdn.net/thumb/large/100/251/749/products/tooli-p.jpg?v=1630386063953',
     },
 
     {
       id: 4,
       category: 'Kiến Thức',
-      title: 'Sự khác biệt giữa VPN và Proxy - Nên chọn cái nào',
+      title: 'Tìm hiểu các loại máy in UV',
+      description:
+        'Mạng 6G là gì? mạng 6G có tốc độ bao nhiêu? Làm sao để mạng 6G có thể nhanh gấp 500 lần so với 5G? Trong kỷ nguyên số hiện nay...',
       author: 'Admin',
-      date: '26/02/2025',
-      image: proxyvsvpn1,
+      date: '03/03/2025',
+      image: 'https://bigcolor.vn/hinhanh/tintuc/tim-hieu-cac-loai-may-in-uv.jpg',
     },
     {
       id: 5,
       category: 'Kiến Thức',
-      title: 'Tìm hiểu về SOCKS5 Proxy - Ưu điểm so với HTTP Proxy',
+      title: 'Bigcolor Việt Nam chính thức trở thành đại lý độc quyền EZLETER tại Việt Nam',
       author: 'Admin',
       date: '26/02/2025',
-      image: socks51,
+      image:
+        'https://bigcolor.vn/hinhanh/tintuc/bigcolor-viet-nam-chinh-thuc-tro-thanh-dai-ly-doc-quyen-ezleter-tai-viet-nam.jpg',
     },
   ]
   return (

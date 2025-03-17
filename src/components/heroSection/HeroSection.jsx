@@ -44,7 +44,7 @@ export default function HeroSection() {
                 y='50%' // Đẩy chữ lên để có thêm không gian
                 textAnchor='middle'
                 fontWeight='bold'
-                fontSize='clamp(20px, 5vw, 80px)' // Điều chỉnh font-size linh hoạt
+                fontSize='10px' // Điều chỉnh font-size linh hoạt
                 fill='blue'
               >
                 MÁY IN UV CHẤT LƯỢNG CAO

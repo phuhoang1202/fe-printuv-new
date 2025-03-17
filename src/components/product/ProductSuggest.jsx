@@ -58,11 +58,8 @@ export default function ProductSuggest() {
       <div className='relative'>
         <div className='lg:grid lg:grid-cols-4 gap-6 lg:py-2 pb-4 lg:overflow-hidden overflow-x-auto flex'>
           {isLoading
-            ? Array.from({ length: 6 }).map((_, index) => (
-                <div
-                  key={index}
-                  className='flex lg:w-[406px] w-[386px] lg:min-h-[200px] min-h-[50px] lg:gap-6 gap-4 mx-auto'
-                >
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <div key={index} className='flex flex-col lg:min-h-[400px] min-h-[50px] lg:gap-6 gap-4 mx-auto'>
                   <Skeleton.Image className='w-[162px] lg:h-[240px] rounded-lg flex-1' />
                   <div className='flex flex-col justify-between lg:w-[220px] w-44'>
                     <Skeleton active paragraph={{ rows: 3 }} />

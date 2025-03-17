@@ -15,7 +15,7 @@ export default function CustomerSupportMenu() {
   const token = getToken()
 
   const menuItems = [
-    { label: `Tư vấn khách hàng`, path: '/ho-tro-khach-hang/tu-van-khach-hang', requiresAuth: false },
+    // { label: `Tư vấn khách hàng`, path: '/ho-tro-khach-hang/tu-van-khach-hang', requiresAuth: false },
     { label: `Câu hỏi thường gặp`, path: '/ho-tro-khach-hang/cau-hoi-thuong-gap', requiresAuth: false },
     { label: `Hỗ trợ 1:1`, path: '/ho-tro-khach-hang/ho-tro-1-1', requiresAuth: false },
     { label: `Phán ảnh dịch vụ`, path: '/ho-tro-khach-hang/phan-anh-dich-vu', requiresAuth: false },

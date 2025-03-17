@@ -40,9 +40,9 @@ export default function NewNavbar() {
     {
       key: 'support',
       label: 'Hỗ trợ khách hàng',
-      href: '/ho-tro-khach-hang/tu-van-khach-hang',
+      href: '/ho-tro-khach-hang/cau-hoi-thuong-gap',
       children: [
-        { key: 'consulting', label: 'Tư vấn khách hàng', href: '/ho-tro-khach-hang/tu-van-khach-hang' },
+        // { key: 'consulting', label: 'Tư vấn khách hàng', href: '/ho-tro-khach-hang/tu-van-khach-hang' },
         { key: 'faq', label: 'Câu hỏi thường gặp', href: '/ho-tro-khach-hang/cau-hoi-thuong-gap' },
         { key: 'support-1-1', label: 'Hỗ trợ 1:1', href: '/ho-tro-khach-hang/ho-tro-1-1' },
         { key: 'service-feedback', label: 'Phản ánh dịch vụ', href: '/ho-tro-khach-hang/phan-anh-dich-vu' },

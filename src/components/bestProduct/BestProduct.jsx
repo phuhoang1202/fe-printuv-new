@@ -8,6 +8,7 @@ import IconRight from '@assets/images/IconRight.svg'
 import { product } from '@services/user/product'
 import { getUserInfor } from '@utils/auth'
 import { useTranslation } from 'react-i18next'
+import { Skeleton } from 'antd'
 
 export default function BestProduct({ addToWishList }) {
   const ratings = [Rating1, Rating2, Rating3]
@@ -59,18 +60,27 @@ export default function BestProduct({ addToWishList }) {
         <span className='inline-block h-[2px] w-10 bg-[#F14646] mb-6' />
 
         <div className='mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 lg:gap-6 gap-4'>
-          {bestProducts?.map((item, index) => (
-            <div key={index}>
-              <Product
-                item={item}
-                type={'best'}
-                setBestProducts={setBestProducts}
-                combinedArray={combinedArray}
-                index={index}
-                addToWishList={addToWishList}
-              />
-            </div>
-          ))}
+          {isLoading
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <div key={index} className='flex flex-col lg:min-h-[400px] min-h-[50px] lg:gap-6 gap-4 mx-auto'>
+                  <Skeleton.Image className='w-[162px] lg:h-[240px] rounded-lg flex-1' />
+                  <div className='flex flex-col justify-between lg:w-[220px] w-44'>
+                    <Skeleton active paragraph={{ rows: 3 }} />
+                  </div>
+                </div>
+              ))
+            : bestProducts?.map((item, index) => (
+                <div key={index}>
+                  <Product
+                    item={item}
+                    type={'best'}
+                    setBestProducts={setBestProducts}
+                    combinedArray={combinedArray}
+                    index={index}
+                    addToWishList={addToWishList}
+                  />
+                </div>
+              ))}
         </div>
       </div>
     </div>

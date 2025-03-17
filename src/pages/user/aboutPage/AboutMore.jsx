@@ -51,7 +51,7 @@ export default function AboutMore() {
             <h2 className='lg:text-bigPrdName text-largerPrdName text-[#3B3B3B] font-semibold uppercase'>
               Về chúng tôi
             </h2>
-            <p className='mt-4 text-[#3B3B3B] text-primaryPrdName'>
+            <p className='mt-4 text-[#3B3B3B] text-primaryPrdName font-medium'>
               Công ty TNHH một thành viên Big Color Việt Nam thành lập vào năm 2011 tại Số 24 ngõ 286 đường Giáp bát,
               phường Giáp bát quận Hoàng Mai, Hà Nội, Việt Nam. Hiện nay công ty đã có sự phân phối của chi nhánh chính
               tại 78/7 Nguyễn Thị Tú, P. Bình Hưng Hòa B, Quận Bình Tân. Với hơn 10 năm kinh nghiệm trong lĩnh vực cung

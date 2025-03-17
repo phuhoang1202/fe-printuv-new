@@ -60,7 +60,7 @@ export default function Categories() {
 
   // Hàm điều hướng
   const handleNavigate = (category) => {
-    navigate(`/all-product?category=${category}`)
+    navigate(`/tat-ca-san-pham?q=${encodeURIComponent(category)}`)
   }
 
   return (

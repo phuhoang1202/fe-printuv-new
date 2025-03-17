@@ -1,4 +1,6 @@
 import React from 'react'
+import Lottie from 'lottie-react'
+import lotties1 from '@assets/animations/loading1.json'
 
 function Loading() {
   return (

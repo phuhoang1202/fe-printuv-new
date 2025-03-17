@@ -105,11 +105,11 @@ export default function Footer() {
       id: 3,
       title: 'Hỗ trợ',
       content: [
-        {
-          id: 1,
-          subContent: 'Tư vấn khách hàng',
-          linkHref: '/ho-tro-khach-hang/tu-van-khach-hang',
-        },
+        // {
+        //   id: 1,
+        //   subContent: 'Tư vấn khách hàng',
+        //   linkHref: '/ho-tro-khach-hang/tu-van-khach-hang',
+        // },
         {
           id: 2,
           subContent: 'Câu hỏi thường gặp',
