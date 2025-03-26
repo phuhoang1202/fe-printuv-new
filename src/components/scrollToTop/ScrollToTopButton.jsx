@@ -34,7 +34,7 @@ export default function ScrollToTopButton() {
 
   return (
     <div>
-      <div className='fixed bottom-28 right-10 flex justify-center items-center rounded-full z-50 duration-300 ease-in-out'>
+      <div className='fixed lg:bottom-28 bottom-14 right-10 flex justify-center items-center rounded-full z-50 duration-300 ease-in-out'>
         <div className='flex flex-col gap-4'>
           <div className='relative cursor-pointer'>
             <img

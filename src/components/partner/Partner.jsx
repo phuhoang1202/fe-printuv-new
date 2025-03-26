@@ -47,18 +47,37 @@ export default function Partner() {
   ]
 
   const settings1 = {
-    // dots: true,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: false,
     cssEase: 'linear',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   }
 
   return (
-    <div className='container wow fadeInUp lg:max-w-7xl mx-auto lg:px-0 px-4 w-full mt-4' data-wow-delay='.1s'>
+    <div className='lg:max-w-7xl mx-auto lg:px-0 px-8 w-full mt-4'>
       <div>
         <h2 className='font-bold lg:text-bigPrdName text-largerPrdName text-[#3B3B3B] text-center capitalize'>
           Đối tác của chúng tôi

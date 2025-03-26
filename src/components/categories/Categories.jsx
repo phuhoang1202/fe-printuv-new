@@ -84,12 +84,12 @@ export default function Categories() {
                 <div className='absolute inset-0 bg-[black] bg-opacity-40 transition group-hover:bg-opacity-60'>
                   <a
                     href='#'
-                    className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
+                    className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
                   >
                     {category.title}
                   </a>
                   <div
-                    className='lg:flex hidden absolute bottom-0 left-0 right-0 bg-none text-white text-base font-roboto font-normal p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500  items-center justify-center'
+                    className='lg:flex hidden absolute bottom-0 left-0 right-0 bg-none text-white font-normal p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 items-center justify-center'
                     style={{ height: '80%' }}
                   >
                     <div className='flex justify-between w-full'>
@@ -98,7 +98,7 @@ export default function Categories() {
                           <li
                             key={index}
                             onClick={() => handleNavigate(category.category)}
-                            className='cursor-pointer uppercase py-1 px-8 text-primaryPrdName font-medium hover:text-gray-600'
+                            className='cursor-pointer uppercase py-1 px-8 lg:text-primaryPrdName text-normal font-medium hover:text-gray-600'
                           >
                             {item}
                           </li>
@@ -109,7 +109,7 @@ export default function Categories() {
                           <li
                             key={index}
                             onClick={() => handleNavigate(category.category)}
-                            className='cursor-pointer py-1 px-8 text-primaryPrdName font-medium hover:text-gray-600'
+                            className='cursor-pointer py-1 px-8 lg:text-primaryPrdName text-normal font-medium hover:text-gray-600'
                           >
                             {item}
                           </li>
@@ -132,12 +132,12 @@ export default function Categories() {
               <div className='absolute inset-0 bg-[black] bg-opacity-40 transition group-hover:bg-opacity-60'>
                 <a
                   href='#'
-                  className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white hover:text-gray-600 font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
+                  className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white hover:text-gray-600 font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
                 >
                   {category.title}
                 </a>
                 <div
-                  className='absolute bottom-0 left-0 right-0 bg-none text-white text-base font-roboto font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
+                  className='absolute bottom-0 left-0 right-0 bg-none text-white font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
                   style={{ height: '80%' }}
                 >
                   <ul className='text-left flex flex-col justify-start items-start '>

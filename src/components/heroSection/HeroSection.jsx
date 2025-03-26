@@ -48,17 +48,17 @@ export default function HeroSection() {
             </svg>
           </div>
 
-          <p className='mb-9 font-semibold text-white lg:text-[20px] text-normal sm:leading-[1.44] text-center'>
+          <p className='mb-9 font-semibold text-white lg:text-largerPrdName md:text-textPrd text-normal text-center'>
             Giải pháp in UV chuyên nghiệp, sắc nét trên mọi chất liệu. Độ bền màu vượt trội, tốc độ in nhanh, đáp ứng
             mọi nhu cầu in ấn.
           </p>
 
-          <div className='flex lg:flex-row flex-col items-center gap-4'>
+          <div className='flex flex-row items-center gap-4'>
             <Link to={'/tat-ca-san-pham'}>
               <CustomButton
                 size='large'
                 colors={['#eb3941', '#f15e64', '#e14e53', '#e2373f']}
-                className='h-14 w-60 uppercase font-semibold '
+                className='h-14 lg:w-60 w-40 uppercase font-semibold '
               >
                 Đặt hàng
               </CustomButton>
@@ -68,7 +68,7 @@ export default function HeroSection() {
               <CustomButton
                 size='large'
                 colors={['#667eea', '#764ba2', '#6B8DD6', '#8E37D7']}
-                className='h-14 w-60 uppercase font-semibold '
+                className='h-14 lg:w-60 w-40 uppercase font-semibold '
               >
                 Liên hệ ngay
               </CustomButton>

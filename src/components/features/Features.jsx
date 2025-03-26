@@ -14,7 +14,7 @@ export default function Features() {
     { id: 1, image: Icon24Hours, text: 'Hỗ trợ 24/7' },
   ]
   return (
-    <div className='wow fadeInUp mt-2 lg:px-0 px-4 w-full bg-[#F7F7F1] py-10' data-wow-delay='.1s'>
+    <div className='mt-2 lg:px-0 px-4 w-full bg-[#F7F7F1] py-10'>
       <div className='flex lg:flex-row flex-col items-center gap-4 justify-center'>
         {dataCategory.map((category, index) => {
           return (

@@ -115,8 +115,8 @@ export default function Footer() {
   ]
 
   return (
-    <div className='relative mt-8 border-t text-[#3B3B3B] py-4'>
-      <div className='max-w-7xl w-full mx-auto lg:my-6 my-4 lg:px-0 px-2'>
+    <div className='relative mt-8 border-t text-[#3B3B3B] py-4 lg:px-0 px-4'>
+      <div className='max-w-7xl w-full mx-auto lg:my-6 my-4 '>
         {/* Chia layout thành grid */}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
           {/* Phần đầu (Chiếm 2 phần) */}
