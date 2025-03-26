@@ -57,16 +57,6 @@ export default function Partner() {
     cssEase: 'linear',
   }
 
-  const settings2 = {
-    // dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 3000,
-    cssEase: 'linear',
-  }
   return (
     <div className='container wow fadeInUp lg:max-w-7xl mx-auto lg:px-0 px-4 w-full mt-4' data-wow-delay='.1s'>
       <div>

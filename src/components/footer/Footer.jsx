@@ -85,18 +85,8 @@ export default function Footer() {
         },
         {
           id: 5,
-          subContent: 'Chính sách bảo hành 3M',
-          linkHref: '/chinh-sach/chinh-sach-bao-hanh-3M',
-        },
-        {
-          id: 6,
           subContent: 'Chính sách đổi trả',
           linkHref: '/chinh-sach/chinh-sach-doi-tra',
-        },
-        {
-          id: 7,
-          subContent: 'Chính sách bảo mật',
-          linkHref: '/chinh-sach/chinh-sach-bao-mat',
         },
       ],
     },
@@ -105,23 +95,18 @@ export default function Footer() {
       id: 3,
       title: 'Hỗ trợ',
       content: [
-        // {
-        //   id: 1,
-        //   subContent: 'Tư vấn khách hàng',
-        //   linkHref: '/ho-tro-khach-hang/tu-van-khach-hang',
-        // },
         {
-          id: 2,
+          id: 1,
           subContent: 'Câu hỏi thường gặp',
           linkHref: '/ho-tro-khach-hang/cau-hoi-thuong-gap',
         },
         {
-          id: 3,
+          id: 2,
           subContent: 'Hỗ trợ 1:1',
           linkHref: '/ho-tro-khach-hang/ho-tro-1-1',
         },
         {
-          id: 4,
+          id: 3,
           subContent: 'Phản ánh dịch vụ',
           linkHref: '/ho-tro-khach-hang/phan-anh-dich-vu',
         },
@@ -130,74 +115,75 @@ export default function Footer() {
   ]
 
   return (
-    <div className='relative mt-8 border-t text-[#3B3B3B] py-10'>
-      <div className='max-w-7xl w-full mx-auto  lg:my-6 my-4 flex flex-col md:flex-row justify-between items-start lg:px-0 px-5'>
-        <div className='flex items-start gap-4 max-w-2xl'>
-          <div className='w-20 '>
-            <img src={LogoNoBg} alt='photo' className='w-full h-full object-cover ' />
-          </div>
-          <div>
-            <div>
-              <div className='font-bold lg:text-bigPrdName text-largerPrdName uppercase text-[#3B3B3B]'>
-                <strong className='text-logo'>bigcolor việt nam</strong>
-              </div>
-              <p className='text-[#3B3B3B] font-semibold'>
-                Bigcolor Việt Nam cung cấp máy in UV chất lượng cao, đáp ứng mọi nhu cầu in ấn chuyên nghiệp.
-              </p>
+    <div className='relative mt-8 border-t text-[#3B3B3B] py-4'>
+      <div className='max-w-7xl w-full mx-auto lg:my-6 my-4 lg:px-0 px-2'>
+        {/* Chia layout thành grid */}
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+          {/* Phần đầu (Chiếm 2 phần) */}
+          <div className='col-span-1 flex flex-col md:flex-row items-center md:items-start gap-4 max-w-2xl text-center md:text-left'>
+            <div className='w-20'>
+              <img src={LogoNoBg} alt='photo' className='w-full h-full object-cover' />
             </div>
-            <ul className='ml-5'>
-              {addressCompany.map((infor, index) => {
-                return (
+            <div>
+              <div>
+                <div className='font-bold lg:text-bigPrdName text-largerPrdName uppercase text-[#3B3B3B]'>
+                  <strong className='text-logo'>bigcolor việt nam</strong>
+                </div>
+                <p className='text-[#3B3B3B] font-semibold'>
+                  Bigcolor Việt Nam cung cấp máy in UV chất lượng cao, đáp ứng mọi nhu cầu in ấn chuyên nghiệp.
+                </p>
+              </div>
+              <ul className='mt-4'>
+                {addressCompany.map((infor, index) => (
                   <li key={index} className='mt-4'>
                     <strong>{infor.office}:</strong>
                     <div className='flex flex-col ml-4'>
                       <div className='flex items-center gap-1'>
-                        <div className='flex items-center'>
-                          <i className='fa-solid fa-location-dot text-small w-6'></i>
-                          <span className='font-medium text-normal'>Địa chỉ: </span>
+                        <i className='fa-solid fa-location-dot lg:text-small text-[12px] w-4'></i>
+                        <span className='font-medium lg:text-normal text-small lg:w-auto w-12'>Địa chỉ: </span>
+                        <div className='font-medium line-clamp-1 lg:w-auto w-72 lg:text-normal text-small'>
+                          {infor.address}
                         </div>
-                        <div className='font-medium'>{infor.address}</div>
                       </div>
                       <div className='flex items-center gap-1'>
-                        <div className='flex items-center'>
-                          <i className='fa-solid fa-phone text-small w-6'></i>
-                          <span className='font-medium'>SĐT: </span>
-                        </div>
-                        <div className='font-medium'>{infor.phoneNumber}</div>
+                        <i className='fa-solid fa-phone lg:text-small text-[12px] w-4'></i>
+                        <span className='font-medium lg:text-normal text-small'>SĐT: </span>
+                        <div className='font-medium lg:text-normal text-small'>{infor.phoneNumber}</div>
                       </div>
                       <div className='flex items-center gap-1'>
-                        <div className='flex items-center'>
-                          <i className='fa-solid fa-envelope text-small w-6'></i>
-                          <span className='font-medium'>Email: </span>
-                        </div>
-                        <div className='font-medium'>{infor.email}</div>
+                        <i className='fa-solid fa-envelope lg:text-small text-[12px] w-4'></i>
+                        <span className='font-medium lg:text-normal text-small'>Email: </span>
+                        <div className='font-medium lg:text-normal text-small'>{infor.email}</div>
                       </div>
                     </div>
                   </li>
-                )
-              })}
-            </ul>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {dataFooter.map((infor, index) => {
-          return (
-            <div key={index}>
-              <div>
-                <strong className='uppercase'>{infor.title}</strong>
-              </div>
-              <div className='flex flex-col gap-2 mt-4'>
-                {infor.content.map((el, index) => (
-                  <div className='flex flex-col gap-4' key={index}>
-                    <Link to={el.linkHref} className='font-medium text-[#3B3B3B] transition hover:opacity-75'>
+          {/* Các cột thông tin (Chiếm 1 phần mỗi cột) */}
+          <div className='grid grid-cols-3'>
+            {dataFooter.map((infor, index) => (
+              <div key={index} className='text-center'>
+                <div>
+                  <strong className='uppercase lg:text-normal '>{infor.title}</strong>
+                </div>
+                <div className='flex flex-col items-center gap-2 lg:mt-4 mt-2'>
+                  {infor.content.map((el, idx) => (
+                    <Link
+                      key={idx}
+                      to={el.linkHref}
+                      className='font-medium text-[#3B3B3B] transition hover:opacity-75 lg:text-normal text-small'
+                    >
                       {el.subContent}
                     </Link>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )
-        })}
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

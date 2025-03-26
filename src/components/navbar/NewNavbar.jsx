@@ -23,7 +23,7 @@ export default function NewNavbar() {
 
   const items = [
     { key: 'all-product', label: 'Tất cả sản phẩm', href: '/tat-ca-san-pham' },
-    // { key: 'news-page', label: 'Bài viết', href: '/bai-viet' },
+    { key: 'news-page', label: 'Bài viết', href: '/bai-viet' },
     {
       key: 'policy',
       label: 'Chính sách',
@@ -34,7 +34,7 @@ export default function NewNavbar() {
         { key: 'shipping', label: 'Chính sách vận chuyển', href: '/chinh-sach/chinh-sach-van-chuyen' },
         { key: 'warranty', label: 'Chính sách bảo hành', href: '/chinh-sach/chinh-sach-bao-hanh' },
         { key: 'return', label: 'Chính sách đổi trả', href: '/chinh-sach/chinh-sach-doi-tra' },
-        { key: 'privacy', label: 'Chính sách bảo mật', href: '/chinh-sach/chinh-sach-bao-mat' },
+        // { key: 'privacy', label: 'Chính sách bảo mật', href: '/chinh-sach/chinh-sach-bao-mat' },
       ],
     },
     {
@@ -82,7 +82,7 @@ export default function NewNavbar() {
         scrolling ? 'stickyyy' : ''
       } ${!isHome ? 'border-b border-gray-200' : ''}`}
     >
-      <div className='w-full px-10'>
+      <div className='w-full lg:px-10 px-4'>
         <div className='relative flex items-center justify-between '>
           <div>
             <Link to={'/'} className='flex items-center gap-2'>

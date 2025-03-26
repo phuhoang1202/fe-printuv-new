@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-;<div className='flex flex-col items-center'></div>
+
 export default function ServiceReflection() {
   return (
     <div className='flex flex-col items-center'>

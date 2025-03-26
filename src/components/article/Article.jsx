@@ -1,13 +1,34 @@
 import React from 'react'
-import content6g from '@assets/images/content/content6g-1.jpg'
-import bangthong1 from '@assets/images/content/bangthong1.png'
-import proxy1 from '@assets/images/content/proxy1.jpg'
-import proxyvsvpn1 from '@assets/images/content/proxyvsvpn1.jpg'
-import socks51 from '@assets/images/content/socks51.png'
-import { Link } from 'react-router-dom'
 import SeeMore from '@components/seeMore/SeeMore'
+import Slider from 'react-slick'
+import IconRight from '@assets/icons/user/IconRight.svg'
+import IconLeft from '@assets/icons/user/IconLeft.svg'
 
 export default function Article() {
+  function SamplePrevArrow2(props) {
+    const { onClick } = props
+    return (
+      <button
+        className={` absolute top-1/2 -translate-y-1/2 -left-10 rounded-full !w-10 !h-10  cursor-pointer  bg-white flex items-center justify-center `}
+        onClick={onClick}
+      >
+        <img src={IconLeft} alt='icon' className='w-full h-full object-cover rounded-full shadow-lg' />
+      </button>
+    )
+  }
+
+  function SampleNextArrow2(props) {
+    const { className, onClick } = props
+    return (
+      <button
+        className={` absolute top-1/2 -translate-y-1/2 -right-10 rounded-full !w-10 !h-10  cursor-pointer  bg-white flex items-center justify-center `}
+        onClick={onClick}
+      >
+        <img src={IconRight} alt='icon' className='w-full h-full object-cover rounded-full shadow-lg' />
+      </button>
+    )
+  }
+
   const newsData = [
     {
       id: 1,
@@ -21,8 +42,6 @@ export default function Article() {
       id: 2,
       category: 'Kiến Thức',
       title: 'Top 5 máy in UV bạn nên dùng',
-      description:
-        'Mạng 6G là gì? mạng 6G có tốc độ bao nhiêu? Làm sao để mạng 6G có thể nhanh gấp 500 lần so với 5G? Trong kỷ nguyên số hiện nay...',
       author: 'Admin',
       date: '03/03/2025',
       image: 'https://mayinuv.com.vn/wp-content/uploads/may-in-uv-cuon-kho-lon-3m2.jpg',
@@ -40,8 +59,6 @@ export default function Article() {
       id: 4,
       category: 'Kiến Thức',
       title: 'Tìm hiểu các loại máy in UV',
-      description:
-        'Mạng 6G là gì? mạng 6G có tốc độ bao nhiêu? Làm sao để mạng 6G có thể nhanh gấp 500 lần so với 5G? Trong kỷ nguyên số hiện nay...',
       author: 'Admin',
       date: '03/03/2025',
       image: 'https://bigcolor.vn/hinhanh/tintuc/tim-hieu-cac-loai-may-in-uv.jpg',
@@ -56,19 +73,102 @@ export default function Article() {
         'https://bigcolor.vn/hinhanh/tintuc/bigcolor-viet-nam-chinh-thuc-tro-thanh-dai-ly-doc-quyen-ezleter-tai-viet-nam.jpg',
     },
   ]
+
+  const settings2 = {
+    dots: false,
+    infinite: true,
+    arrow: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    prevArrow: <SamplePrevArrow2 />,
+    nextArrow: <SampleNextArrow2 />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
+
   return (
-    <section id='content' className=' dark:bg-dark py-14 lg:py-18 border-t'>
+    <section id='content' className=' dark:bg-dark py-8 lg:py-18 border-t'>
       <div className='container mx-auto '>
         <div className='w-full px-4'>
           <div className='mx-auto mb-[60px] max-w-[520px] text-center'>
-            <h2 className='mb-3 text-3xl font-bold leading-[1.2] text-[#3B3B3B] dark:text-white sm:text-4xl md:text-[40px]'>
+            <h2 className='mb-3 md:text-largerPrdName text-textPrd font-bold leading-[1.2] text-[#3B3B3B] dark:text-white lg:text-[40px]'>
               Tin tức và sự kiện
             </h2>
           </div>
         </div>
       </div>
 
-      <div className='lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-0 px-4'>
+      <div className='max-w-7xl mx-auto lg:px-0 px-14'>
+        <div>
+          <Slider {...settings2}>
+            {newsData.map((banner, i) => (
+              <section className='lg:px-2' key={i}>
+                <article className='relative border border-[#EEEBFF] shadow-lg rounded-xl overflow-hidden group'>
+                  <div
+                    className='relative h-[300px] bg-cover bg-center transition-all duration-300 group-hover:scale-110'
+                    style={{
+                      backgroundImage: banner.image?.length > 0 ? `url(${banner.image})` : 'none',
+                    }}
+                  >
+                    {/* Nội dung */}
+                    <div className='font-medium text-white absolute top-4 left-4 z-10 text-small bg-black/50 backdrop-blur-sm p-2 rounded-md'>
+                      {banner.category}
+                    </div>
+
+                    <div
+                      className='absolute w-full bg-black/50 backdrop-blur-sm bottom-0 flex items-center justify-between py-2 px-8 
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-small'
+                    >
+                      <div className='font-medium text-white'>{banner.author}</div>
+                      <div className='font-medium text-white'>{banner.date}</div>
+                    </div>
+                  </div>
+
+                  <div className='p-4 mt-2 bg-white'>
+                    <div className='h-16'>
+                      <div className='font-semibold text-primaryPrdName line-clamp-2'>{banner.title}</div>
+                    </div>
+
+                    {/* <p className='text-sm font-medium text-[#37383C99] mt-3'>{banner.content}</p> */}
+
+                    <div className='flex justify-between items-end mt-2'>
+                      <button className='font-medium text-sm px-5 py-2 border border-[#70737C38] rounded-lg hover:bg-[#37383C] hover:text-white transition-opacity duration-200'>
+                        Chi tiết
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </section>
+            ))}
+          </Slider>
+        </div>
+      </div>
+
+      {/* <div className='lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-0 px-4'>
         {newsData.map((news, index) => (
           <div
             key={news.id}
@@ -88,9 +188,9 @@ export default function Article() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
-      <div className='flex justify-center w-full mt-8 pt-2'>
+      <div className='flex justify-center w-full mt-2 pt-2'>
         <SeeMore />
       </div>
     </section>

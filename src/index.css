@@ -902,7 +902,26 @@ text {
   animation: stroke 2s forwards;
   stroke-width: 2;
   stroke: #365fa0;
-  font-size: 80px;
+  font-size: 60px;
+}
+@media (max-width: 1024px) {
+  text {
+    font-size: 100px;
+  }
+}
+
+/* Mobile (Dưới 768px) */
+@media (max-width: 768px) {
+  text {
+    font-size: 100px;
+  }
+}
+
+/* Mobile nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+  text {
+    font-size: 100px;
+  }
 }
 
 @keyframes stroke {

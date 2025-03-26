@@ -19,21 +19,9 @@ export default function NavigateMenu() {
     { label: `Phương thức thanh toán`, path: '/chinh-sach/phuong-thuc-thanh-toan', requiresAuth: false },
     { label: `Chính sách vận chuyển`, path: '/chinh-sach/chinh-sach-van-chuyen', requiresAuth: false },
     { label: `Chính sách bảo hành`, path: '/chinh-sach/chinh-sach-bao-hanh', requiresAuth: false },
-    { label: `Chính sách bảo hành 3M`, path: '/chinh-sach/chinh-sach-bao-hanh-3M', requiresAuth: false },
     { label: `Chính sách đổi trả`, path: '/chinh-sach/chinh-sach-doi-tra', requiresAuth: false },
-    { label: `Chính sách bảo mật`, path: '/chinh-sach/chinh-sach-bao-mat', requiresAuth: false },
+    // { label: `Chính sách bảo mật`, path: '/chinh-sach/chinh-sach-bao-mat', requiresAuth: false },
   ]
-
-  const handleOk = () => {
-    setConfirmLoading(true)
-    setOpenModal(false)
-    setConfirmLoading(false)
-    navigate('/login')
-  }
-
-  const handleCancel = () => {
-    setOpenModal(false)
-  }
 
   const renderMenuItems = menuItems.map((item) => (
     <Menu.Item
@@ -86,37 +74,7 @@ export default function NavigateMenu() {
             </div>
           </div>
         </div>
-
         <Outlet />
-
-        {/* Modal navigate login */}
-        {/* <Modal open={openModal} confirmLoading={confirmLoading} onCancel={handleCancel} footer={false} centered>
-          <div>
-            <div className='font-semibold text-textPrd flex flex-col justify-center items-center mt-4 gap-2'>
-              <div>{t('loginText2')}</div>
-            </div>
-          </div>
-
-          <div className='flex items-center justify-center gap-6 mt-8'>
-            <div>
-              <button
-                className='font-semibold text-normal h-11 min-w-36 rounded-lg'
-                style={{ border: '2px solid black' }}
-                onClick={handleCancel}
-              >
-                {t('btnCancel')}
-              </button>
-            </div>
-            <div>
-              <button
-                className='text-white bg-[#D1B584] font-semibold text-normal h-11 min-w-36 rounded-lg'
-                onClick={handleOk}
-              >
-                {t('loginBtn')}
-              </button>
-            </div>
-          </div>
-        </Modal> */}
       </div>
     </div>
   )

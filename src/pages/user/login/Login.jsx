@@ -25,12 +25,6 @@ function Login() {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (!window.Kakao.isInitialized()) {
-      Kakao.init('7a153b8ed4ff130b054872a746a0381d')
-    }
-  }, [])
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }

@@ -39,14 +39,7 @@ export default function HeroSection() {
               viewBox='0 0 1400 400' // Tăng chiều rộng và chiều cao
               preserveAspectRatio='xMidYMid slice' // Đảm bảo không méo chữ
             >
-              <text
-                x='50%'
-                y='50%' // Đẩy chữ lên để có thêm không gian
-                textAnchor='middle'
-                fontWeight='bold'
-                fontSize='10px' // Điều chỉnh font-size linh hoạt
-                fill='blue'
-              >
+              <text x='50%' y='50%' textAnchor='middle' fontWeight='bold' fontSize='10px' fill='blue'>
                 MÁY IN UV CHẤT LƯỢNG CAO
                 <tspan x='50%' dy='1.4em'>
                   CÔNG NGHỆ HIỆN ĐẠI
@@ -61,20 +54,25 @@ export default function HeroSection() {
           </p>
 
           <div className='flex lg:flex-row flex-col items-center gap-4'>
-            <CustomButton
-              size='large'
-              colors={['#eb3941', '#f15e64', '#e14e53', '#e2373f']}
-              className='h-14 w-60 uppercase font-semibold '
-            >
-              Đặt hàng
-            </CustomButton>
-            <CustomButton
-              size='large'
-              colors={['#667eea', '#764ba2', '#6B8DD6', '#8E37D7']}
-              className='h-14 w-60 uppercase font-semibold '
-            >
-              Liên hệ ngay
-            </CustomButton>
+            <Link to={'/tat-ca-san-pham'}>
+              <CustomButton
+                size='large'
+                colors={['#eb3941', '#f15e64', '#e14e53', '#e2373f']}
+                className='h-14 w-60 uppercase font-semibold '
+              >
+                Đặt hàng
+              </CustomButton>
+            </Link>
+
+            <Link to={'/lien-he'}>
+              <CustomButton
+                size='large'
+                colors={['#667eea', '#764ba2', '#6B8DD6', '#8E37D7']}
+                className='h-14 w-60 uppercase font-semibold '
+              >
+                Liên hệ ngay
+              </CustomButton>
+            </Link>
 
             {/* <Link to={'/lien-he'}>
               <button className='flex items-center justify-center gap-4 rounded-md bg-white/[0.12] h-14 w-60 px-6 py-[10px] font-medium text-[#3B3B3B] transition duration-300 ease-in-out hover:bg-white hover:text-dark uppercase'>

@@ -6,6 +6,7 @@ import Article from '@components/article/Article'
 import Partner from '@components/partner/Partner'
 import HeroSection from '@components/heroSection/HeroSection'
 import AboutMore from '../aboutPage/AboutMore'
+import Accordion from '@components/faqs/Accordion'
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <BestProduct />
       <AboutMore />
       <Partner />
+      <Accordion />
       <Article />
     </div>
   )

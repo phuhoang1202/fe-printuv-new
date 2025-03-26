@@ -33,9 +33,8 @@ export default function AllMenu({ setAllMenuVisible, isAllMenuVisible }) {
         { key: 'g3-1-2', label: `Phương thức thanh toán`, href: '/chinh-sach/phuong-thuc-thanh-toan' },
         { key: 'g3-1-3', label: `Chính sách vận chuyển`, href: '/chinh-sach/chinh-sach-van-chuyen' },
         { key: 'g3-1-4', label: `Chính sách bảo hành`, href: '/chinh-sach/chinh-sach-bao-hanh' },
-        { key: 'g3-1-5', label: `Chính sách bảo hành 3M`, href: '/chinh-sach/chinh-sach-bao-hanh-3M' },
-        { key: 'g3-1-6', label: `Chính sách đổi trả`, href: '/chinh-sach/chinh-sach-doi-tra' },
-        { key: 'g3-1-7', label: `Chính sách bảo mật`, href: '/chinh-sach/chinh-sach-bao-mat' },
+        { key: 'g3-1-5', label: `Chính sách đổi trả`, href: '/chinh-sach/chinh-sach-doi-tra' },
+        // { key: 'g3-1-6', label: `Chính sách bảo mật`, href: '/chinh-sach/chinh-sach-bao-mat' },
       ],
     },
 

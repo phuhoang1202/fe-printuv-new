@@ -51,7 +51,7 @@ export default function ProductSuggest() {
   }
 
   return (
-    <div className=' py-20 lg:max-w-7xl mx-auto lg:px-0 px-4 w-full  wow fadeInUp' data-wow-delay='.1s'>
+    <div className=' py-20 lg:max-w-7xl mx-auto lg:px-0 px-4'>
       <div className='font-bold lg:text-bigPrdName text-largerPrdName text-[#3B3B3B]'>Gợi ý</div>
       <span className='inline-block h-[2px] w-10 bg-[#F14646] mb-6' />
 

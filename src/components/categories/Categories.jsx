@@ -4,6 +4,7 @@ import Bedroom from '@assets/images/category/category1.webp'
 import Mattrass from '@assets/images/category/category2.webp'
 import Outdoor from '@assets/images/category/category3.webp'
 import Sofa from '@assets/images/category/category4.webp'
+import Accessory from '@assets/images/category/category5.webp'
 
 const categories = [
   {
@@ -77,11 +78,13 @@ export default function Categories() {
 
             return (
               <div key={category.id} className='relative rounded-xl overflow-hidden group'>
-                <img src={category.img} alt={`category ${category.id}`} className='w-full' />
+                <div className='h-[40vh]'>
+                  <img src={category.img} alt={`category ${category.id}`} className='w-full h-full object-cover' />
+                </div>
                 <div className='absolute inset-0 bg-[black] bg-opacity-40 transition group-hover:bg-opacity-60'>
                   <a
                     href='#'
-                    className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28'
+                    className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
                   >
                     {category.title}
                   </a>
@@ -95,7 +98,7 @@ export default function Categories() {
                           <li
                             key={index}
                             onClick={() => handleNavigate(category.category)}
-                            className='cursor-pointer py-1 px-8 text-primaryPrdName font-medium hover:text-gray-600'
+                            className='cursor-pointer uppercase py-1 px-8 text-primaryPrdName font-medium hover:text-gray-600'
                           >
                             {item}
                           </li>
@@ -122,11 +125,14 @@ export default function Categories() {
           // Các danh mục khác vẫn hiển thị như bình thường
           return (
             <div key={category.id} className='relative rounded-xl overflow-hidden group'>
-              <img src={category.img} alt={`category ${category.id}`} className='w-full' />
+              <div className='h-[40vh]'>
+                <img src={category.img} alt={`category ${category.id}`} className='w-full h-full object-cover' />
+              </div>
+
               <div className='absolute inset-0 bg-[black] bg-opacity-40 transition group-hover:bg-opacity-60'>
                 <a
                   href='#'
-                  className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white hover:text-gray-600 font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28'
+                  className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white hover:text-gray-600 font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
                 >
                   {category.title}
                 </a>
@@ -134,12 +140,12 @@ export default function Categories() {
                   className='absolute bottom-0 left-0 right-0 bg-none text-white text-base font-roboto font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
                   style={{ height: '80%' }}
                 >
-                  <ul className='text-left flex flex-col justify-start items-start'>
+                  <ul className='text-left flex flex-col justify-start items-start '>
                     {category.items.map((item, index) => (
                       <li
                         key={index}
                         onClick={() => handleNavigate(category.category)}
-                        className='cursor-pointer py-1 text-primaryPrdName font-medium hover:text-gray-600'
+                        className='cursor-pointer py-1 text-primaryPrdName font-medium hover:text-gray-600 uppercase'
                       >
                         {item}
                       </li>
@@ -150,6 +156,40 @@ export default function Categories() {
             </div>
           )
         })}
+      </div>
+
+      <div className='relative rounded-xl overflow-hidden group mt-3'>
+        <div className='h-[40vh]'>
+          <img src={Accessory} alt={`category`} className='w-full h-full object-cover' />
+        </div>
+
+        <div className='absolute inset-0 bg-[black] bg-opacity-40 transition group-hover:bg-opacity-60'>
+          <a
+            href='#'
+            className='absolute inset-0 flex flex-col justify-center items-center text-bigPrdName text-white hover:text-gray-600 font-roboto font-medium transition-transform duration-500 group-hover:-translate-y-28 uppercase'
+          >
+            Phụ kiện
+          </a>
+          <div
+            className='absolute bottom-0 left-0 right-0 bg-none text-white text-base font-roboto font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
+            style={{ height: '80%' }}
+          >
+            <ul className='text-left flex justify-start items-start gap-20'>
+              <li
+                onClick={() => handleNavigate(category.category)}
+                className='cursor-pointer py-1 text-primaryPrdName font-medium hover:text-gray-600 uppercase'
+              >
+                Linh Kiện Máy In UV
+              </li>
+              <li
+                onClick={() => handleNavigate(category.category)}
+                className='cursor-pointer py-1 text-primaryPrdName font-medium hover:text-gray-600 uppercase'
+              >
+                Mực In UV
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )
