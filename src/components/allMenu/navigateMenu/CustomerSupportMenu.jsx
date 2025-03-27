@@ -42,12 +42,12 @@ export default function CustomerSupportMenu() {
   }
 
   return (
-    <div className='max-w-7xl mx-auto lg:mt-24 mt-28'>
+    <div className='max-w-7xl mx-auto lg:mt-24 mt-20'>
       {/* Dropdown menu for mobile */}
       <div className='lg:hidden block w-full px-4'>
         <Dropdown overlay={mobileMenu} placement='bottomCenter' trigger={['click']}>
           <div className='flex items-center justify-center gap-2 px-4 py-2 bg-[#F8F8F8] rounded-md text-primaryPrdName font-semibold cursor-pointer'>
-            {t('featureFooter4')} <img src={IconArrowDownFill} alt='icon' />
+            Trung tâm dịch vụ khách hàng <img src={IconArrowDownFill} alt='icon' />
           </div>
         </Dropdown>
       </div>

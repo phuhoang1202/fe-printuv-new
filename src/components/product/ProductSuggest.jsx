@@ -18,7 +18,7 @@ export default function ProductSuggest() {
   const fetchRecommendProducts = async () => {
     try {
       setIsLoading(true)
-      const response = await product.getAllPrds(10, 1)
+      const response = await product.getAllPrds(8, 1)
 
       setRecommendProducts(response.data.data.items)
     } catch (error) {
@@ -51,12 +51,12 @@ export default function ProductSuggest() {
   }
 
   return (
-    <div className=' py-20 lg:max-w-7xl mx-auto lg:px-0 px-4'>
+    <div className='lg:py-20 py-10 lg:max-w-7xl mx-auto lg:px-0 px-4'>
       <div className='font-bold lg:text-bigPrdName text-largerPrdName text-[#3B3B3B]'>Gợi ý</div>
       <span className='inline-block h-[2px] w-10 bg-[#F14646] mb-6' />
 
       <div className='relative'>
-        <div className='lg:grid lg:grid-cols-4 gap-6 lg:py-2 pb-4 lg:overflow-hidden overflow-x-auto flex'>
+        <div className='lg:grid lg:grid-cols-4 gap-6 lg:py-2 pb-4 lg:overflow-hidden overflow-x-auto flex px-1 '>
           {isLoading
             ? Array.from({ length: 8 }).map((_, index) => (
                 <div key={index} className='flex flex-col lg:min-h-[400px] min-h-[50px] lg:gap-6 gap-4 mx-auto'>

@@ -46,7 +46,7 @@ export default function AboutPage() {
       </div>
 
       {/* Text */}
-      <div className='lg:mt-24 mt-16 lg:px-0 px-2 pt-10 py-20 max-w-7xl mx-auto text-[#3B3B3B]'>
+      <div className='lg:mt-24 mt-16 lg:px-0 px-2 pt-10 lg:py-20 py-10 max-w-7xl mx-auto text-[#3B3B3B]'>
         <h1 className='lg:text-biggerName text-bigPrdName font-bold tracking-tight text-[#3B3B3B]'>
           CÔNG TY TNHH MỘT THÀNH VIÊN BIG COLOR VIỆT NAM
         </h1>

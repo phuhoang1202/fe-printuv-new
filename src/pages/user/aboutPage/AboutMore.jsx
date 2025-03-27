@@ -16,7 +16,7 @@ export default function AboutMore() {
         ></div>
       </div>
 
-      <div className='container mx-auto py-16 lg:px-0 px-4'>
+      <div className='container mx-auto lg:py-20 py-10 lg:px-0 px-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 items-center lg:gap-8 gap-2'>
           <div className='max-w-lg'>
             <h2 className='lg:text-bigPrdName text-largerPrdName text-[#3B3B3B] font-semibold uppercase'>

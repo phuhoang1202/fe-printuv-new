@@ -1,7 +1,7 @@
 import { callApi, callApiNoAuthen } from '../../apis'
 
 const getAllPrds = (limit, offset, q, order) => {
-  return callApi(`/products?limit=${limit}`, 'get', null)
+  return callApi(`/products?limit=${limit}&offset=${offset}`, 'get', null)
 }
 
 const getPrdById = (id) => {

@@ -7,7 +7,7 @@ const Accordion = () => {
       <div className='container mx-auto'>
         <div className='-mx-4 flex flex-wrap'>
           <div className='w-full px-4'>
-            <div className='mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20'>
+            <div className='mx-auto mb-4 md:mb-8 max-w-[520px] text-center lg:mb-20'>
               <span className='mb-2 block text-lg font-semibold text-primary'>FAQ</span>
               <h2 className='mb-4 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]'>
                 Câu hỏi thường gặp

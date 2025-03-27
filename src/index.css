@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .socialIcon {
-    @apply w-11 border-[1px] border-blue-400 border-solid h-11 rounded-full px-2 py-1 text-pink-500  hover:text-blue-400 cursor-pointer transition duration-200 hover:animate-pulse;
-  }
-} */
-
-/* @font-face {
-  font-family: 'Regular';
-  src: url('/src/assets/fonts/Nunito-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Medium';
-  src: url('/src/assets/fonts/Nunito-Medium.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Bold';
-  src: url('/src/assets/fonts/Nunito-Bold.ttf') format('truetype');
-}
-
-html {
-} */
-
 body {
   font-family: 'Roboto', 'Noto Sans KR', sans-serif !important;
   color: #3b3b3b;

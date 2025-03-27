@@ -150,8 +150,8 @@ function App() {
           }
         ></Route>
         <Route path='/login' element={<Login />} />
-        {/* <Route path='/signup' element={<SignUp />} />
-        <Route path='/forgot-password' element={<ForgotPass />} /> */}
+        <Route path='/signup' element={<SignUp />} />
+        {/* <Route path='/forgot-password' element={<ForgotPass />} /> */}
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

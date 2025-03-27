@@ -89,7 +89,7 @@ export default function Categories() {
                     {category.title}
                   </a>
                   <div
-                    className='lg:flex hidden absolute bottom-0 left-0 right-0 bg-none text-white font-normal p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 items-center justify-center'
+                    className='absolute bottom-0 left-0 right-0 bg-none text-white font-normal lg:p-4 p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 items-center justify-center'
                     style={{ height: '80%' }}
                   >
                     <div className='flex justify-between w-full'>
@@ -98,7 +98,7 @@ export default function Categories() {
                           <li
                             key={index}
                             onClick={() => handleNavigate(category.category)}
-                            className='cursor-pointer uppercase py-1 px-8 lg:text-primaryPrdName text-normal font-medium hover:text-gray-600'
+                            className='cursor-pointer uppercase py-1 lg:px-8 px-2 lg:text-primaryPrdName md:text-normal text-small font-medium hover:text-gray-600'
                           >
                             {item}
                           </li>
@@ -109,7 +109,7 @@ export default function Categories() {
                           <li
                             key={index}
                             onClick={() => handleNavigate(category.category)}
-                            className='cursor-pointer py-1 px-8 lg:text-primaryPrdName text-normal font-medium hover:text-gray-600'
+                            className='cursor-pointer uppercase py-1 lg:px-8 px-2 lg:text-primaryPrdName md:text-normal text-small font-medium hover:text-gray-600'
                           >
                             {item}
                           </li>
@@ -137,7 +137,7 @@ export default function Categories() {
                   {category.title}
                 </a>
                 <div
-                  className='absolute bottom-0 left-0 right-0 bg-none text-white font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
+                  className='absolute bottom-0 left-0 right-0  text-white font-primaryPrdName p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center'
                   style={{ height: '80%' }}
                 >
                   <ul className='text-left flex flex-col justify-start items-start '>
@@ -145,7 +145,7 @@ export default function Categories() {
                       <li
                         key={index}
                         onClick={() => handleNavigate(category.category)}
-                        className='cursor-pointer py-1 text-primaryPrdName font-medium hover:text-gray-600 uppercase'
+                        className='cursor-pointer py-1 lg:text-primaryPrdName md:text-normal text-small font-medium hover:text-gray-600 uppercase'
                       >
                         {item}
                       </li>

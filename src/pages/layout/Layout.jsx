@@ -12,7 +12,8 @@ function LayoutComponent() {
   // const isHome = location.pathname === '/'
   return (
     <>
-      <NewNavbar />
+      {/* <NewNavbar /> */}
+      <Navbar />
       <ScrollToTop />
       <ScrollToTopButton />
       <Outlet />

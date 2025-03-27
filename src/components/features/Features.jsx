@@ -22,7 +22,7 @@ export default function Features() {
               key={index}
               className='flex flex-col items-center justify-center cursor-pointer shadow-md gap-4 border rounded-lg px-4 h-auto py-4 lg:w-[400px] w-[350px] bg-white hover:shadow-lg'
             >
-              <img src={category.image} alt='image' className='lg:w-32 lg:h-32 w-24 h-24 object-contain' />
+              <img src={category.image} alt='image' className='lg:w-28 lg:h-28 w-24 h-24 object-contain' />
               <h4 className='font-semibold lg:text-largerPrdName text-textPrd uppercase'>{category.text}</h4>
             </div>
           )

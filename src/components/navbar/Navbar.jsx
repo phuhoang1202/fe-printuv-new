@@ -1,310 +1,155 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { Menu, Drawer, Input, Button, Tooltip } from 'antd'
+import { MenuOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons'
 import { Link, useNavigate } from 'react-router-dom'
-import { Dropdown, Menu, Button, Modal } from 'antd'
 import iconSearch from '@assets/images/IconSearch.svg'
+import LogoNoBg from '@assets/images/Logo/LogoNoBg.png'
+import IconHeart from '@assets/images/IconHeart.svg'
+import IconHeartActive from '@assets/images/IconHeartActive.svg'
+import IconUser from '@assets/images/IconUser.svg'
+import IconFavourite from '@assets/images/IconFavourite.svg'
 import IconCart from '@assets/images/IconCart.svg'
-import FlagKorea from '@assets/images/flag/FlagKorea.svg'
-import FlagChina from '@assets/images/flag/FlagChina.svg'
-import FlagJapan from '@assets/images/flag/FlagJapan.svg'
-import FlagVN from '@assets/images/flag/FlagVN.svg'
-import FlagAsia from '@assets/images/flag/FlagAsia.svg'
-import IconArrowDownFill from '@assets/images/IconArrowDownFill.svg'
-import IconMenu from '@assets/images/IconMenu.svg'
-import AllMenu from '@components/allMenu/AllMenu'
-import NotifyIcon from '@assets/icons/NotifyIcon'
-import { getToken, getUserInfor } from '@utils/auth'
-import { useTranslation } from 'react-i18next'
+import IconDot from '@assets/images/IconDot.svg'
+
+const items = [
+  { key: 'all-product', label: 'Tất cả sản phẩm', href: '/tat-ca-san-pham' },
+  { key: 'news-page', label: 'Bài viết', href: '/bai-viet' },
+  {
+    key: 'policy',
+    label: 'Chính sách',
+    children: [
+      { key: 'terms', label: 'Điều khoản sử dụng', href: '/chinh-sach/dieu-khoan-su-dung' },
+      { key: 'payment', label: 'Phương thức thanh toán', href: '/chinh-sach/phuong-thuc-thanh-toan' },
+      { key: 'shipping', label: 'Chính sách vận chuyển', href: '/chinh-sach/chinh-sach-van-chuyen' },
+      { key: 'warranty', label: 'Chính sách bảo hành', href: '/chinh-sach/chinh-sach-bao-hanh' },
+      { key: 'return', label: 'Chính sách đổi trả', href: '/chinh-sach/chinh-sach-doi-tra' },
+    ],
+  },
+  {
+    key: 'support',
+    label: 'Hỗ trợ khách hàng',
+    children: [
+      { key: 'faq', label: 'Câu hỏi thường gặp', href: '/ho-tro-khach-hang/cau-hoi-thuong-gap' },
+      { key: 'support-1-1', label: 'Hỗ trợ 1:1', href: '/ho-tro-khach-hang/ho-tro-1-1' },
+      { key: 'service-feedback', label: 'Phản ánh dịch vụ', href: '/ho-tro-khach-hang/phan-anh-dich-vu' },
+    ],
+  },
+  { key: 'about', label: 'Về chúng tôi', href: '/ve-chung-toi' },
+  { key: 'contact', label: 'Liên hệ', href: '/lien-he' },
+]
 
 export default function Navbar() {
-  const [valueSearch, setValueSearch] = useState('')
-  const token = getToken()
+  const [open, setOpen] = useState(false)
   const navigate = useNavigate()
+  const [valueSearch, setValueSearch] = useState('')
 
-  const [language, setLanguage] = useState('')
-  const { t, i18n } = useTranslation()
-
-  const userInfor = getUserInfor() || []
-
-  // Sử dụng state để lưu trữ thông tin người dùng
-  const [getInfoUser, setInfoUser] = useState(null)
-  const [isAllMenuVisible, setAllMenuVisible] = useState(false)
-
-  useEffect(() => {
-    const savedLanguage = JSON.parse(localStorage.getItem('language')) || 'ko'
-    setLanguage(savedLanguage)
-  }, [])
-
-  useEffect(() => {
-    if (userInfor) {
-      const updatedUser = JSON.parse(getUserInfor() || null)
-      setInfoUser(updatedUser)
-    }
-  }, [userInfor])
-
-  // useEffect(() => {
-  //   const form = {
-  //     pageNumber: 0,
-  //     pageSize: 10,
-  //   }
-  //   getCartByCondition(form)
-  //   getAllWishList(form)
-  // }, [])
-
-  const handleLanguageChange = (lang, exchangePrice) => {
-    setLanguage(lang)
-    i18n.changeLanguage(lang)
-    localStorage.setItem('language', JSON.stringify(lang))
-    localStorage.setItem('exchangePrice', JSON.stringify(exchangePrice))
-    window.location.reload()
-  }
-
-  const menu = (
-    <Menu>
-      <Menu.Item>
-        <div className='flex items-center gap-3 border-b' onClick={() => handleLanguageChange('ko', 'KRW')}>
-          <img src={FlagKorea} alt='icon' />
-          Korea
-        </div>
-      </Menu.Item>
-      <Menu.Item>
-        <div className='flex items-center gap-3' onClick={() => handleLanguageChange('zh-CN', 'CNH')}>
-          <img src={FlagChina} alt='icon' />
-          China
-        </div>
-      </Menu.Item>
-      <Menu.Item>
-        <div className='flex items-center gap-3' onClick={() => handleLanguageChange('ja', 'JPY')}>
-          <img src={FlagJapan} alt='icon' />
-          Japan
-        </div>
-      </Menu.Item>
-      <Menu.Item>
-        <div className='flex items-center gap-3' onClick={() => handleLanguageChange('vi', 'VND')}>
-          <img src={FlagVN} alt='icon' />
-          Việt Nam
-        </div>
-      </Menu.Item>
-      <Menu.Item>
-        <div className='flex items-center gap-3' onClick={() => handleLanguageChange('en', 'USD')}>
-          <img src={FlagAsia} alt='icon' />
-          Global
-        </div>
-      </Menu.Item>
-    </Menu>
-  )
-
-  // Search Product
-  const handleSearch = async () => {
-    try {
-      navigate(`/search-product?query=${encodeURIComponent(valueSearch)}`)
-    } catch (error) {
-      console.error('Error translating text:', error)
-    }
-  }
-
-  // Modal navigate login
-  const [openModal, setOpenModal] = useState(false)
-  const [confirmLoading, setConfirmLoading] = useState(false)
-
-  const handleOk = () => {
-    setConfirmLoading(true)
-
-    setOpenModal(false)
-    setConfirmLoading(false)
-
-    navigate('/login')
-  }
-  const handleCancel = () => {
-    setOpenModal(false)
-  }
-
-  const handleNavigate = (page) => {
-    if (!token) {
-      setOpenModal(true)
-    } else {
-      switch (page) {
-        case '/shopping-cart':
-          navigate('/shopping-cart')
-          break
-        case '/shopping-cart/favorites':
-          navigate('/shopping-cart/favorites')
-          break
-        default:
-          navigate('/')
-          break
-      }
-    }
-  }
+  let getInfoUser = ''
 
   return (
-    <div className='border-b pb-2'>
-      {/* Trademark */}
-      <div className='border-b fixed top-0 w-full bg-white' style={{ zIndex: 60 }}>
-        {/* Header */}
-        <div className='flex items-center justify-between lg:max-w-7xl w-full mx-auto lg:px-0 px-2 py-2 lg:gap-4 gap-2'>
-          <Link to={'/'}>
-            <div className='lg:h-[62px] h-11'>
-              <img
-                src={'https://mayinuv.vn/wp-content/uploads/2019/09/logo-slogan.png'}
-                alt='photo'
-                className='h-full w-full object-cover'
-              />
-            </div>
+    <nav className='bg-white shadow-md fixed top-0 left-0 w-full z-50'>
+      <div className=' mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='flex justify-between items-center h-16'>
+          {/* Logo */}
+          <Link to={'/'} className='flex items-center gap-2'>
+            <img src={LogoNoBg} alt='logo' className='header-logo w-12' />
+            <strong className='lg:text-[24px] font-bold text-textPrd uppercase text-logo'>BigColor</strong>
           </Link>
 
-          <div className='lg:block hidden relative'>
-            <input
-              type='text'
-              className='rounded-xl lg:pr-10 pr-8 py-3 lg:w-[405px] w-28 md:w-96 lg:h-10 h-9 pl-4 custom-placeholder'
-              style={{ border: '1px solid #D3D2D2' }}
-              // placeholder={t('inputSearch')}
-              placeholder={'Tìm kiếm sản phẩm'}
-              value={valueSearch}
-              onChange={(e) => setValueSearch(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  handleSearch()
-                }
-              }}
+          {/* Menu Desktop */}
+          <div className='hidden md:flex flex-1 justify-center w-full'>
+            <Menu
+              mode='horizontal'
+              className='lg:text-primaryPrdName text-normal border-none shadow-none'
+              items={items.map((item) => ({
+                key: item.key,
+                label: item.children ? (
+                  item.label
+                ) : (
+                  <Link to={item.href} className='lg:text-primaryPrdName text-normal'>
+                    {item.label}
+                  </Link>
+                ),
+                children: item.children?.map((subItem) => ({
+                  key: subItem.key,
+                  label: (
+                    <Link to={subItem.href} className='lg:text-[17px] text-normal'>
+                      {subItem.label}
+                    </Link>
+                  ),
+                })),
+              }))}
             />
-            <button onClick={handleSearch}>
-              <img
-                src={iconSearch}
-                alt='icon search'
-                className='absolute top-1/2 right-3 transform -translate-y-1/2 lg:h-auto lg:w-auto w-5 h-5'
-              />
-            </button>
           </div>
 
-          <div className='flex justify-between lg:justify-end lg:flex-row items-center gap-4 '>
-            <div className='flex lg:justify-between justify-end items-center gap-2'>
-              {/* Cart */}
-              <div className='relative cursor-pointer h-10 w-10' onClick={() => handleNavigate('/shopping-cart')}>
-                <img
-                  src={IconCart}
-                  alt='icon'
-                  className='opacity-100 transition-opacity duration-300 h-full w-full object-cover'
-                />
-                <NotifyIcon className='absolute top-2.5 right-2' />
+          {/* Search & Login/Register */}
+          <div className='hidden md:flex items-center gap-2'>
+            {/* <div>
+              <ShoppingCartOutlined style={{ fontSize: '24px' }} />
+            </div> */}
+            <Tooltip placement='top' title={'Mua hàng'}>
+              <div className='relative'>
+                <img src={IconCart} alt='icon' />
+                <img src={IconDot} alt='icon' className='absolute top-2.5 right-2' />
               </div>
-
-              {/* Language mobile */}
-              <Dropdown
-                overlay={menu}
-                trigger={['click']}
-                className='w-[82px] lg:h-12 h-11 lg:hidden flex'
-                style={{ zIndex: '9999' }}
-              >
-                <Button
-                  className='flex items-center justify-between'
-                  style={{
-                    border: '1px solid black',
-                    borderRadius: '30px',
-                    padding: '8px 12px',
-                    zIndex: '9999',
-                  }}
-                >
-                  <img
-                    src={
-                      language === 'ko'
-                        ? FlagKorea
-                        : language === 'zh-CN'
-                        ? FlagChina
-                        : language === 'ja'
-                        ? FlagJapan
-                        : language === 'vi'
-                        ? FlagVN
-                        : language === 'en'
-                        ? FlagAsia
-                        : FlagKorea
-                    }
-                    alt='Selected Flag'
-                  />
-                  <img src={IconArrowDownFill} alt='icon korea' />
-                </Button>
-              </Dropdown>
-
-              {/* Menu */}
+            </Tooltip>
+            <Tooltip placement='top' title={'Yêu thích'}>
+              <div className='relative'>
+                <img src={IconFavourite} alt='icon' />
+                <img src={IconDot} alt='icon' className='absolute top-2.5 right-2' />
+              </div>
+            </Tooltip>
+            <Tooltip placement='top' title={'Người dùng'}>
               <div
-                className='flex items-center gap-4 relative h-10 w-10'
-                // onMouseEnter={() => setIsMenuHovered(true)}
-                // onMouseLeave={() => setIsMenuHovered(false)}
-                onClick={() => setAllMenuVisible(!isAllMenuVisible)}
+                className='cursor-pointer rounded-full h-10 w-10'
+                onMouseEnter={() => setIsUserHovered(true)}
+                onMouseLeave={() => setIsUserHovered(false)}
+                onClick={() => (getInfoUser ? navigate('/account/change-information') : navigate('/login'))}
               >
-                {/* {isMenuHovered ? (
-                  <img src={MenuHover} alt='icon' />P
-                ) : ( */}
-                <img src={IconMenu} alt='icon menu' className='cursor-pointer h-full w-full object-cover' />
-                {/* )} */}
-
-                {isAllMenuVisible && (
-                  <div className='absolute top-12 -right-2 z-50'>
-                    <AllMenu setAllMenuVisible={setAllMenuVisible} isAllMenuVisible={isAllMenuVisible} />
-                  </div>
-                )}
+                <img
+                  src={
+                    getInfoUser && getInfoUser.img
+                      ? `${c.DOMAIN_AVATAR}${getInfoUser.img}?access_token=${token}`
+                      : IconUser
+                  }
+                  alt='icon'
+                  loading='lazy'
+                  className='w-full h-full object-cover rounded-full'
+                />
               </div>
-              {/* Language */}
-              <Dropdown
-                overlay={menu}
-                trigger={['click']}
-                className='w-[82px] lg:h-10 h-9 lg:flex hidden border'
-                style={{ zIndex: '9999' }}
-              >
-                <Button
-                  className='flex items-center justify-between'
-                  style={{
-                    // border: '1px solid black',
-                    borderRadius: '30px',
-                    padding: '8px 12px',
-                    zIndex: '9999',
-                  }}
-                >
-                  <img
-                    src={
-                      language === 'ko'
-                        ? FlagKorea
-                        : language === 'zh-CN'
-                        ? FlagChina
-                        : language === 'ja'
-                        ? FlagJapan
-                        : language === 'vi'
-                        ? FlagVN
-                        : language === 'en'
-                        ? FlagAsia
-                        : FlagKorea
-                    }
-                    alt='Selected Flag'
-                  />
-                  <img src={IconArrowDownFill} alt='icon korea' />
-                </Button>
-              </Dropdown>
-            </div>
+            </Tooltip>
           </div>
-        </div>
 
-        <div className='lg:hidden block relative py-2 lg:px-0 px-2 w-full'>
-          <input
-            type='text'
-            className='rounded-xl lg:pr-10 pr-8 py-3 w-full lg:h-10 h-9 pl-4'
-            style={{ border: '1px solid #D3D2D2' }}
-            placeholder={'Tìm kiếm sản phẩm'}
-            value={valueSearch}
-            onChange={(e) => setValueSearch(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                handleSearch()
-              }
-            }}
-          />
-          <button onClick={handleSearch}>
-            <img
-              src={iconSearch}
-              alt='icon search'
-              className='absolute top-1/2 right-4 transform -translate-y-1/2 lg:h-auto lg:w-auto w-5 h-5'
-            />
-          </button>
+          {/* Menu Mobile */}
+          <div className='md:hidden'>
+            <MenuOutlined onClick={() => setOpen(true)} />
+          </div>
         </div>
       </div>
-    </div>
+
+      <Drawer title='Menu' placement='left' onClose={() => setOpen(false)} open={open}>
+        <Menu
+          mode='inline'
+          className='text-normal font-medium'
+          items={items.map((item) => ({
+            key: item.key,
+            label: item.children ? (
+              item.label
+            ) : (
+              <Link to={item.href} className='text-normal font-medium'>
+                {item.label}
+              </Link>
+            ),
+            children: item.children?.map((sub) => ({
+              key: sub.key,
+              label: (
+                <Link to={sub.href} className='text-normal font-normal'>
+                  {sub.label}
+                </Link>
+              ),
+            })),
+          }))}
+        />
+      </Drawer>
+    </nav>
   )
 }

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import IconHeart from '@assets/images/IconHeart.svg'
-import IconHeartActive from '@assets/images/IconHeartActive.svg'
-import IconStar from '@assets/images/IconStar.svg'
 import { Modal, Skeleton, Tooltip } from 'antd'
-import { constants as c } from '@constants'
 import { Link } from 'react-router-dom'
 import { getToken } from '@utils/auth'
 import { useTranslation } from 'react-i18next'
 import ImageError from '@assets/images/ImageError.svg'
+import IconHeartBlack from '@assets/images/IconHeartBlack2.svg'
+import IconHeartActive from '@assets/images/IconHeartActive.svg'
 
-export default function Product({ item, type, combinedArray, index, addToWishList, setBestProducts, setDataCategory }) {
+export default function Product({ item, type, index, addToWishList, setBestProducts, setDataCategory }) {
   const [loading, setLoading] = useState(true)
   const [unit, setUnit] = useState('KRW')
 
@@ -60,20 +58,13 @@ export default function Product({ item, type, combinedArray, index, addToWishLis
             backgroundImage: item.imageUrls?.length > 0 ? `url(${item.imageUrls[0]})` : 'none',
           }}
         ></div>
-        {type === 'best' && (
-          <div className='absolute top-2 left-2'>
-            {index < 3 ? (
-              <img src={combinedArray[index]} alt={`rating`} />
-            ) : (
-              <div className='bg-[#28282899] flex justify-center items-center h-10 w-10 rounded-full'>
-                <span className='text-white font-bold text-textPrd'>{index + 1}</span>
-              </div>
-            )}
-          </div>
-        )}
+
         <div className='absolute top-0 right-0 bottom-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-between p-4'>
-          <img src={IconHeartActive} alt='icon' className='w-6 h-6' />
+          <div className='flex items-center justify-center'>
+            <img src={IconHeartBlack} alt='icon' className='lg:w-7 lg:h-7 w-6 h-6' />
+          </div>
         </div>
+
         <div className='p-4 mt-1'>
           <h3 className='text-lg font-semibold'>
             <Link to={`/product/${item.id}`}>
@@ -85,7 +76,7 @@ export default function Product({ item, type, combinedArray, index, addToWishLis
             </Link>
           </h3>
           <Link to={`/product/${item.id}`}>
-            <button className='w-full mt-2 p-2 border border-gray-300 rounded-lg text-gray-700 font-medium transition-all duration-300 hover:bg-gray-100 active:bg-gray-200'>
+            <button className='w-full mt-4 p-2 border border-gray-300 rounded-lg text-gray-700 font-medium transition-all duration-300 hover:bg-gray-100 active:bg-gray-200'>
               Xem chi tiết
             </button>
           </Link>

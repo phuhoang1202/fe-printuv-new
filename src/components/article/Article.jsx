@@ -111,7 +111,7 @@ export default function Article() {
   }
 
   return (
-    <section id='content' className=' dark:bg-dark py-8 lg:py-18 border-t lg:px-0 px-4'>
+    <section id='content' className=' dark:bg-dark lg:py-20 py-10 border-t lg:px-0 px-4'>
       <div className='container mx-auto '>
         <div className='w-full px-4'>
           <div className='mx-auto mb-[60px] max-w-[520px] text-center'>

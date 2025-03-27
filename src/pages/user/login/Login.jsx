@@ -6,13 +6,12 @@ import Loading from '@components/loadingCommon/Loading.jsx'
 import { loginApi, socialLoginApi } from '@services/user/auth.js'
 import { Toast } from '@utils/toast'
 import { setToken, removeToken, setTokenUser } from '@utils/auth.js'
-import ImageLogin from '@assets/images/ImageLogin.svg'
-import ImageLogin2 from '@assets/images/ImageLogin2.jpg'
-
-import Group from '@assets/images/Logo/Group.svg'
+import LogoNoBg from '@assets/images/Logo/LogoNoBg.png'
 import IconEye from '@assets/images/IconEye.svg'
 import IconEyeOff from '@assets/images/IconEyeOff.svg'
 import IconClose from '@assets/images/IconClose.svg'
+import bgLogin from '@assets/images/login/bgLogin.png'
+import { Button } from 'antd'
 
 function Login() {
   const [user, setUser] = useState(null)
@@ -48,8 +47,6 @@ function Login() {
 
       const checkRole = jwtDecode(accessToken)
       if (checkRole.authorities.includes('role_admin')) {
-        const language = 'ko'
-        localStorage.setItem('language', JSON.stringify(language))
         Toast.success('Login successful!')
         setTimeout(() => {
           navigate('/admin')
@@ -75,29 +72,27 @@ function Login() {
   return (
     <div>
       {loading && <Loading />}
-      <div className='w-full h-screen flex items-center justify-center'>
-        <div className='lg:block hidden relative'>
-          <img src={ImageLogin2} alt='image' className='h-[784px]' />
-          <div className='absolute bottom-2 left-1/2 transform -translate-x-1/2 z-50'>
-            <div className='bg-black/50 text-white backdrop-blur-sm flex flex-col justify-center items-center p-4 rounded-lg'>
-              <p>본 사이트는 베트남-VND, 중국-CNY, 대한민국-KRW,</p>
-              <p>일본-JPY, 글로벌-USD를 지원합니다.</p>
-            </div>
-          </div>
-        </div>
-        <div className='w-[438px] h-[784px] flex flex-col items-center justify-center bg-[#F8F8F8] p-8 rounded-r-lg relative'>
-          <img src={Group} alt='logo' onClick={() => navigate('/')} className='cursor-pointer' />
+      <div
+        className='w-full h-screen flex items-center justify-center'
+        style={{
+          background: `url(${bgLogin}) no-repeat center bottom`,
+          backgroundSize: 'cover',
+          backdropFilter: 'blur(10px)',
+        }}
+      >
+        <div className='absolute inset-0 bg-black/10 backdrop-blur-sm'></div>
+
+        <div className='w-[500px] p-14 flex flex-col items-center justify-center border shadow-md rounded-lg relative bg-white z-10'>
+          <h1 className='text-[#3B3B3B] font-bold text-largerPrdName uppercase'>Đăng nhập</h1>
 
           <div className='absolute right-4 top-4 cursor-pointer' onClick={() => navigate('/')}>
             <img src={IconClose} alt='icon' />
           </div>
 
-          <h1 className='text-[#3B3B3B] font-bold text-primaryPrdName py-6'>회원</h1>
-
-          <form className='w-full'>
+          <form className='w-full mt-10'>
             <div className='flex flex-col gap-3 w-full'>
               <label htmlFor='ID' className='w-full text-[#3B3B3B] text-normal font-medium'>
-                아이디
+                Email
               </label>
               <input
                 id='id'
@@ -105,14 +100,14 @@ function Login() {
                 type='text'
                 value={loginUser.id || ''}
                 onChange={handleChange}
-                placeholder='이메일 아이디'
+                placeholder='Vui lòng điền email ...'
                 className='w-full p-2 rounded-lg h-11 px-4'
                 style={{ border: '1px solid #EFEFEF' }}
               />
             </div>
             <div className='flex flex-col gap-3 w-full pt-7'>
               <label htmlFor='password' className='w-full text-[#3B3B3B] text-normal font-medium'>
-                비밀번호
+                Password
               </label>
               <div className='relative w-full'>
                 <input
@@ -134,33 +129,19 @@ function Login() {
               </div>
             </div>
 
-            <button onClick={handleSubmit} className='bg-[#D1B584] w-full h-11 mt-8 text-base text-white rounded-lg'>
-              로그인
-            </button>
+            <Button
+              onClick={handleSubmit}
+              type='primary'
+              className=' w-full h-11 mt-8 text-white rounded-lg font-medium text-primaryPrdName'
+            >
+              Đăng nhập
+            </Button>
           </form>
 
           <div className='mt-6 text-center text-base'>
-            계정이 없나요?
-            <Link to={'/signup'} className=' font-semibold px-1 text-blue-500 hover:text-blue-700 text-lg'>
-              가입하기
-            </Link>
-          </div>
-
-          <div className='flex items-center w-full mt-10'>
-            <hr className='w-full border-[#D3D2D2]' />
-            <span className='w-full text-[#D3D2D2] flex justify-center items-center'>또는</span>
-            <hr className='w-full border-[#D3D2D2]' />
-          </div>
-
-          <div className='flex justify-between w-full font-medium text-small mt-20 mb-8'>
-            <Link className='underline decoration-solid' to={'/forgot-password'}>
-              아이디 찾기
-            </Link>
-            <Link className='underline decoration-solid' to={'/forgot-password'}>
-              비밀번호 찾기
-            </Link>
-            <Link className='underline decoration-solid' to={'/signup'}>
-              회원가입
+            Bạn chưa có tài khoản?
+            <Link to={'/signup'} className=' font-medium px-1 text-blue-600 hover:text-blue-700 text-primaryPrdName'>
+              Đăng ký
             </Link>
           </div>
         </div>
